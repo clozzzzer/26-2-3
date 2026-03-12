@@ -7,7 +7,7 @@ import numpy as np
 # ==========================================
 # 请确认此路径为您实际的数据根目录
 BASE_PATH = "./data/csv0419_1"
-OUTPUT_FILE = "./data/feature/csv0419_1_feature_time_sequence.csv"
+OUTPUT_FILE = "./data/feature/csv0419_1/All_feature_csv0419_1.csv"
 
 
 # ==========================================

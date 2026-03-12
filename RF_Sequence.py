@@ -15,11 +15,12 @@ plt.rcParams['axes.unicode_minus'] = False
 sns.set_style("whitegrid")
 
 
-file_path = './data/feature/csv0419_1_feature_time_sequence.csv'
+A = '18class_Sequence_feature'
+file_path = f'./data/feature/18class/{A}.csv'
 
 # 定义输出目录
-FIG_DIR = './fig'
-RESULT_DIR = './Result'
+FIG_DIR = './fig/RF_Sequence'
+RESULT_DIR = './Result/RF_Sequence'
 
 # 确保目录存在
 if not os.path.exists(FIG_DIR):
@@ -169,7 +170,7 @@ plt.xlabel('Predicted Label', fontsize=12)
 plt.ylabel('True Label', fontsize=12)
 plt.tight_layout()
 
-save_path_1 = os.path.join(FIG_DIR, 'RF_Confusion_Matrix.png')
+save_path_1 = os.path.join(FIG_DIR, f'RF_Sequence_{A}_Confusion_Matrix.png')
 plt.savefig(save_path_1, dpi=300)
 print(f"✅ 图片已保存: {save_path_1}")
 plt.show()
@@ -196,7 +197,7 @@ plt.gca().invert_yaxis()
 plt.grid(axis='x', linestyle='--', alpha=0.7)
 plt.tight_layout()
 
-save_path_2 = os.path.join(FIG_DIR, 'RF_RF_Feature_Importance.png')
+save_path_2 = os.path.join(FIG_DIR, f'RF_Sequence_{A}_RF_Feature_Importance.png')
 plt.savefig(save_path_2, dpi=300)
 print(f"✅ 图片已保存: {save_path_2}")
 plt.show()
@@ -223,7 +224,7 @@ importance_df = pd.DataFrame({
 importance_df = importance_df.sort_values(by='Importance_Score', ascending=False).reset_index(drop=True)
 importance_df.insert(0, 'Rank', range(1, len(importance_df) + 1))
 
-output_path_csv = os.path.join(RESULT_DIR, 'RF_Importance.csv')
+output_path_csv = os.path.join(RESULT_DIR, f'RF_Sequence_{A}_RF_Importance.csv')
 importance_df.to_csv(output_path_csv, index=False, encoding='utf-8-sig')
 print(f"\n✅ 特征重要性表已保存至: {output_path_csv}")
 
@@ -235,12 +236,12 @@ result_df = pd.DataFrame({
     'Correct': y_test.values == y_pred
 }, index=test_original_index)
 
-output_path_detail = os.path.join(RESULT_DIR, 'RF_Prediction_Result.csv')
+output_path_detail = os.path.join(RESULT_DIR, f'RF_Sequence_{A}_RF_Prediction_Result.csv')
 result_df.to_csv(output_path_detail, index=True, encoding='utf-8-sig', index_label='Original_Row_Index')
 print(f"✅ 预测结果详情已保存至: {output_path_detail}")
 
 # 3. 保存评估摘要
-summary_file = os.path.join(RESULT_DIR, 'RF_Evaluation_Summary.txt')
+summary_file = os.path.join(RESULT_DIR, f'RF_Sequence_{A}_RF_Evaluation_Summary.txt')
 with open(summary_file, 'w', encoding='utf-8') as f:
     f.write("Random Forest Evaluation Summary\n")
     f.write("=" * 40 + "\n")

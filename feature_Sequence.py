@@ -2,6 +2,9 @@ import pandas as pd
 import os
 
 
+file_path = "./data/feature_csv_1.csv"
+output_path = "./data/feature/18class/18class_Sequence_feature.csv"
+
 def calculate_excess_lack(seq_str):
     """
     计算单个Type_Sequence的excess和lack特征
@@ -105,7 +108,6 @@ def calculate_lack_elements(lack_tuple):
 
 
 # 1. 读取CSV文件
-file_path = "./data/feature_csv_1.csv"
 if not os.path.exists(file_path):
     file_path = "feature_csv_1.csv"
 
@@ -149,7 +151,6 @@ if missing_cols:
     raise ValueError(f"错误：以下列未在 DataFrame 中找到: {missing_cols}")
 
 # 4. 保存文件
-output_path = "./data/new_feature_csv.csv"
 os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
 df[output_columns].to_csv(output_path, index=False, encoding='utf-8-sig')

@@ -1,0 +1,13 @@
+RF-Weighted K-Means Clustering Evaluation Summary
+==================================================
+Silhouette Score: 0.2483
+Adjusted Rand Index (ARI): 0.1932
+Normalized Mutual Info (NMI): 0.5070
+Best Match Accuracy: 0.3796
+
+Weighting Strategy: Scaled Features * RF_Importance
+Total Features Used: 67
+Saved Figures:
+  - ./fig/KMeans_Sequence_Importance\KMeans_Weighted_18class_Sequence_feature_Confusion_Matrix.png
+  - ./fig/KMeans_Sequence_Importance\KMEans_Weighted_18class_Sequence_feature_Feature_Distribution.png
+  - ./fig/KMeans_Sequence_Importance\KMeans_Weighted_18class_Sequence_feature_Silhouette_Analysis.png

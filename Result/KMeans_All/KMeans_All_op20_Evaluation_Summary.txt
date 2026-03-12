@@ -1,0 +1,34 @@
+K-Means Clustering Evaluation Summary (Top 20 External Features)
+==================================================
+Source of Features: ./Result/RF_All/RF_All_feature_csv0419_1_Importance.csv
+Number of Clusters (K): 51
+Non-Empty Clusters: 51
+Features Used: 20
+Samples Used: 694
+
+--- Metrics ---
+Silhouette Score: 0.2800
+Calinski-Harabasz Score: 74.24
+Davies-Bouldin Score: 1.1687
+
+--- Features Used ---
+1. First_Stage_Time_Diff
+2. Type_4_First_Occurrence_Time
+3. Type_5_First_Occurrence_Time
+4. Type_3_First_Occurrence_Time
+5. Type_6_First_Occurrence_Time
+6. Next_Packet_After_First_Stage
+7. Avg_Time_Dst_1
+8. Type_2_First_Occurrence_Time
+9. Range_2
+10. Dst_One_Count
+11. Type_6_Count
+12. Type_2_Count
+13. Range_1
+14. Range_1_2
+15. Type_1_Count
+16. lk_count
+17. Type_3_Count
+18. ex_3_3_4
+19. lk_elem_1
+20. ex_2_2_2_3

@@ -12,13 +12,16 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
+A = "All_feature_csv0419_1"
+file_path = f'./data/feature/csv0419_1/{A}.csv'
+
 # ================= 配置区域 =================
 plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'DejaVu Sans', 'Arial Unicode MS']
 plt.rcParams['axes.unicode_minus'] = False
 sns.set_style("whitegrid")
 
-FIG_DIR = './fig'
-RESULT_DIR = './Result'
+FIG_DIR = './fig/RF_All'
+RESULT_DIR = './Result/RF_All'
 
 if not os.path.exists(FIG_DIR):
     os.makedirs(FIG_DIR)
@@ -66,7 +69,6 @@ def safe_eval_to_str_list(x):
 
 
 # 1. 读取数据
-file_path = './data/feature/csv0419_1_feature_time_sequence.csv'
 print(f"正在读取文件: {file_path} ...")
 
 try:
@@ -229,7 +231,7 @@ plt.xlabel('Predicted Label', fontsize=12)
 plt.ylabel('True Label', fontsize=12)
 plt.tight_layout()
 
-save_path_1 = os.path.join(FIG_DIR, 'Fig1_RF_All_Confusion_Matrix.png')
+save_path_1 = os.path.join(FIG_DIR, f'RF_{A}_Confusion_Matrix.png')
 plt.savefig(save_path_1, dpi=300)
 print(f"✅ 图片已保存: {save_path_1}")
 plt.show()
@@ -261,7 +263,7 @@ plt.gca().invert_yaxis()
 plt.grid(axis='x', linestyle='--', alpha=0.7)
 plt.tight_layout()
 
-save_path_2 = os.path.join(FIG_DIR, 'Fig2_RF_All_Feature_Importance.png')
+save_path_2 = os.path.join(FIG_DIR, f'RF_{A}_Feature_Importance.png')
 plt.savefig(save_path_2, dpi=300)
 print(f"✅ 图片已保存: {save_path_2}")
 plt.show()
@@ -285,7 +287,7 @@ importance_df.insert(0, 'Rank', range(1, len(importance_df) + 1))
 importance_df['Feature_Type'] = importance_df['Feature_Name'].apply(
     lambda x: 'Excess' if x.startswith('ex_') else ('Sequence' if x.startswith('seq_') else 'Numeric'))
 
-output_path_csv = os.path.join(RESULT_DIR, 'RF_All_Importance.csv')
+output_path_csv = os.path.join(RESULT_DIR, f'RF_{A}_Importance.csv')
 importance_df.to_csv(output_path_csv, index=False, encoding='utf-8-sig')
 print(f"\n✅ 特征重要性表已保存至: {output_path_csv}")
 
@@ -300,11 +302,11 @@ result_df = pd.DataFrame({
     'Correct': y_test == y_pred
 }, index=test_original_index)
 
-output_path_detail = os.path.join(RESULT_DIR, 'RF_All_Prediction_Result.csv')
+output_path_detail = os.path.join(RESULT_DIR, f'RF_{A}_Prediction_Result.csv')
 result_df.to_csv(output_path_detail, index=True, encoding='utf-8-sig', index_label='Original_Row_Index')
 print(f"✅ 预测结果详情已保存至: {output_path_detail}")
 
-summary_file = os.path.join(RESULT_DIR, 'RF_All_Evaluation_Summary.txt')
+summary_file = os.path.join(RESULT_DIR, f'RF_{A}_Evaluation_Summary.txt')
 with open(summary_file, 'w', encoding='utf-8') as f:
     f.write("Random Forest (All Features) Evaluation Summary\n")
     f.write("=" * 50 + "\n")

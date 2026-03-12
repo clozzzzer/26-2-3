@@ -21,9 +21,12 @@ plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'DejaVu Sans', '
 plt.rcParams['axes.unicode_minus'] = False
 sns.set_style("whitegrid")
 
-FIG_DIR = './fig'
-RESULT_DIR = './Result'
-RF_IMPORTANCE_PATH = './Result/RF_Importance.csv'
+
+A = '18class_Sequence_feature'
+file_path = f'./data/feature/18class/{A}.csv'
+FIG_DIR = './fig/KMeans_Sequence_Importance'
+RESULT_DIR = './Result/KMeans_Sequence_Importance'
+RF_IMPORTANCE_PATH = './Result/RF_Sequence/RF_Sequence_18class_Sequence_feature_RF_Importance.csv'
 
 # 确保目录存在
 if not os.path.exists(FIG_DIR):
@@ -54,7 +57,6 @@ def safe_eval(x):
 
 
 # 1. 读取数据
-file_path = './data/new_feature_csv.csv'
 print(f"正在读取文件: {file_path} ...")
 
 try:
@@ -240,7 +242,7 @@ plt.xlabel('Predicted Cluster', fontsize=12)
 plt.ylabel('True Label', fontsize=12)
 plt.tight_layout()
 
-save_path_1 = os.path.join(FIG_DIR, 'KMeans_Weighted_Confusion_Matrix.png')
+save_path_1 = os.path.join(FIG_DIR, f'KMeans_Weighted_{A}_Confusion_Matrix.png')
 plt.savefig(save_path_1, dpi=300)
 print(f"✅ 图片已保存: {save_path_1}")
 plt.show()
@@ -267,7 +269,7 @@ plt.xticks(rotation=0)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 
-save_path_2 = os.path.join(FIG_DIR, 'KMEans_Weighted_Feature_Distribution.png')
+save_path_2 = os.path.join(FIG_DIR, f'KMEans_Weighted_{A}_Feature_Distribution.png')
 plt.savefig(save_path_2, dpi=300)
 print(f"✅ 图片已保存: {save_path_2}")
 plt.show()
@@ -301,7 +303,7 @@ plt.legend(loc="best")
 plt.yticks([])
 plt.tight_layout()
 
-save_path_3 = os.path.join(FIG_DIR, 'KMeans_Weighted_Silhouette_Analysis.png')
+save_path_3 = os.path.join(FIG_DIR, f'KMeans_Weighted_{A}_Silhouette_Analysis.png')
 plt.savefig(save_path_3, dpi=300)
 print(f"✅ 图片已保存: {save_path_3}")
 plt.show()
@@ -311,12 +313,12 @@ out_cols = ['Label', 'Cluster', 'Best_Match_Pred'] + valid_numeric_cols
 save_df = df[['Label', 'Cluster', 'Best_Match_Pred']].copy()
 save_df[valid_numeric_cols] = df[valid_numeric_cols]
 
-output_file = os.path.join(RESULT_DIR, 'Kmeans_Weighted_Result_Detail.csv')
+output_file = os.path.join(RESULT_DIR, f'Kmeans_Weighted_{A}_Result_Detail.csv')
 save_df.to_csv(output_file, index=False, encoding='utf-8-sig')
 print(f"\n✅ 加权聚类结果详情已保存至: {output_file}")
 
 # 保存对比摘要
-summary_file = os.path.join(RESULT_DIR, 'Kmeans_Weighted_Evaluation_Summary.txt')
+summary_file = os.path.join(RESULT_DIR, f'Kmeans_Weighted_{A}_Evaluation_Summary.txt')
 with open(summary_file, 'w', encoding='utf-8') as f:
     f.write("RF-Weighted K-Means Clustering Evaluation Summary\n")
     f.write("=" * 50 + "\n")

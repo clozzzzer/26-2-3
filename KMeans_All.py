@@ -12,14 +12,22 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
+
+FIG_DIR = './fig/KMeans_All'
+RESULT_DIR = './Result/KMeans_All'
+IMPORTANCE_FILE = './Result/RF_All/RF_All_feature_csv0419_1_Importance.csv'  # 注意路径调整为 Result 目录
+
+#n_clusters = 5
+
+A = 'All_feature_csv0419_1'
+file_path = f'./data/feature/csv0419_1/{A}.csv'
+
 # ================= 配置区域 =================
 plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'DejaVu Sans', 'Arial Unicode MS']
 plt.rcParams['axes.unicode_minus'] = False
 sns.set_style("whitegrid")
 
-FIG_DIR = './fig'
-RESULT_DIR = './Result'
-IMPORTANCE_FILE = './Result/RF_All_Importance.csv'  # 注意路径调整为 Result 目录
+
 
 if not os.path.exists(FIG_DIR):
     os.makedirs(FIG_DIR)
@@ -96,7 +104,6 @@ except Exception as e:
     raise e
 
 # ================= 2. 读取原始数据并构建特征 =================
-file_path = './data/feature/csv0419_1_feature_time_sequence.csv'
 print(f"\n正在读取原始数据文件: {file_path} ...")
 
 try:
@@ -188,8 +195,7 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X_selected)
 
 # ================= 4. K-Means 聚类 =================
-#n_clusters = len(y.unique())
-n_clusters = 5
+n_clusters = len(y.unique())
 print(f"\n正在运行 K-Means 聚类 (K={n_clusters})...")
 print(f"   ⚠️  注意：簇数量较多 ({n_clusters})，可能导致部分簇样本较少。")
 
@@ -275,7 +281,7 @@ else:
 
 plt.tight_layout()
 
-save_path_matrix = os.path.join(FIG_DIR, 'Fig1_KMeans_Top20_Distribution_Matrix.png')
+save_path_matrix = os.path.join(FIG_DIR, f'KMeans_All_{A}_Top20_Distribution_Matrix.png')
 plt.savefig(save_path_matrix, dpi=300)
 print(f"✅ 分布矩阵图已保存: {save_path_matrix}")
 plt.show()
@@ -305,7 +311,7 @@ else:
 plt.grid(True, linestyle='--', alpha=0.6)
 plt.tight_layout()
 
-save_path_pca = os.path.join(FIG_DIR, 'Fig2_KMeans_Top20_PCA_Scatter.png')
+save_path_pca = os.path.join(FIG_DIR, f'KMeans_All_{A}_Top20_PCA_Scatter.png')
 plt.savefig(save_path_pca, dpi=300)
 print(f"✅ PCA 散点图已保存: {save_path_pca}")
 plt.show()
@@ -341,7 +347,7 @@ plt.gca().invert_yaxis()
 plt.grid(axis='x', linestyle='--', alpha=0.7)
 plt.tight_layout()
 
-save_path_feat = os.path.join(FIG_DIR, 'Fig3_KMeans_Top20_Features.png')
+save_path_feat = os.path.join(FIG_DIR, f'KMeans_All_{A}_Top20_Features.png')
 plt.savefig(save_path_feat, dpi=300)
 print(f"✅ 特征列表图已保存: {save_path_feat}")
 plt.show()
@@ -349,18 +355,18 @@ plt.show()
 # ================= 7. 结果保存 =================
 
 # 保存过滤后的交叉表 (更有意义)
-output_path_cross = os.path.join(RESULT_DIR, 'KMeans_Top20_CrossTab_Filtered.csv')
+output_path_cross = os.path.join(RESULT_DIR, f'KMeans_All_{A}_Top20_CrossTab_Filtered.csv')
 cross_tab_filtered.to_csv(output_path_cross, encoding='utf-8-sig')
 print(f"\n✅ 过滤后的交叉分析表已保存至: {output_path_cross}")
 
 # 保存详细结果
 result_df = df[['Label', 'Cluster_Label']].copy()
-output_path_detail = os.path.join(RESULT_DIR, 'KMeans_Top20_Result.csv')
+output_path_detail = os.path.join(RESULT_DIR, f'KMeans_All_{A}_Top20_Result.csv')
 result_df.to_csv(output_path_detail, index=True, encoding='utf-8-sig', index_label='Original_Row_Index')
 print(f"✅ 聚类结果详情已保存至: {output_path_detail}")
 
 # 保存摘要
-summary_file = os.path.join(RESULT_DIR, 'KMeans_Top20_Evaluation_Summary.txt')
+summary_file = os.path.join(RESULT_DIR, f'KMeans_All_op20_Evaluation_Summary.txt')
 with open(summary_file, 'w', encoding='utf-8') as f:
     f.write(f"K-Means Clustering Evaluation Summary (Top 20 External Features)\n")
     f.write("=" * 50 + "\n")

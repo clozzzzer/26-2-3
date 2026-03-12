@@ -1,0 +1,8 @@
+Random Forest (All Features) Evaluation Summary
+==================================================
+Accuracy: 0.6187
+Total Features: 509
+Samples Used: 694 (Removed rare classes)
+Train Size: 416
+Test Size: 278
+Removed Classes: ['IPhone-12_LTE30']
