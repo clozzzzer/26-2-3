@@ -1,0 +1,17 @@
+Random Forest Evaluation Summary
+========================================
+Accuracy: 0.4167
+Total Features: 67
+Train Size: 108
+Test Size: 108
+
+Top 5 Features:
+1. Range_2: 0.1995
+2. 6_Count: 0.1354
+3. Range_1: 0.1082
+4. Range_1_2: 0.0592
+5. ex_3_3_4: 0.0556
+
+Saved Figures:
+  - ./fig\RF_Confusion_Matrix.png
+  - ./fig\RF_RF_Feature_Importance.png
