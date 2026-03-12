@@ -14,6 +14,9 @@ plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'DejaVu Sans', '
 plt.rcParams['axes.unicode_minus'] = False
 sns.set_style("whitegrid")
 
+
+file_path = './data/feature/csv0419_1_feature_time_sequence.csv'
+
 # 定义输出目录
 FIG_DIR = './fig'
 RESULT_DIR = './Result'
@@ -48,7 +51,6 @@ def safe_eval(x):
 
 
 # 1. 读取数据
-file_path = './data/new_feature_csv.csv'
 print(f"正在读取文件: {file_path} ...")
 
 try:
