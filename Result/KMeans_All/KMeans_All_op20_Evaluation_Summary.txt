@@ -7,28 +7,28 @@ Features Used: 20
 Samples Used: 694
 
 --- Metrics ---
-Silhouette Score: 0.2800
-Calinski-Harabasz Score: 74.24
-Davies-Bouldin Score: 1.1687
+Silhouette Score: 0.3152
+Calinski-Harabasz Score: 80.19
+Davies-Bouldin Score: 1.1203
 
 --- Features Used ---
 1. First_Stage_Time_Diff
 2. Type_4_First_Occurrence_Time
 3. Type_5_First_Occurrence_Time
-4. Type_3_First_Occurrence_Time
-5. Type_6_First_Occurrence_Time
-6. Next_Packet_After_First_Stage
-7. Avg_Time_Dst_1
-8. Type_2_First_Occurrence_Time
-9. Range_2
-10. Dst_One_Count
-11. Type_6_Count
-12. Type_2_Count
-13. Range_1
-14. Range_1_2
-15. Type_1_Count
-16. lk_count
-17. Type_3_Count
-18. ex_3_3_4
-19. lk_elem_1
-20. ex_2_2_2_3
+4. Type_6_First_Occurrence_Time
+5. Next_Packet_After_First_Stage
+6. Type_3_First_Occurrence_Time
+7. Type_2_First_Occurrence_Time
+8. Range_2
+9. Range_1
+10. Type_6_Count
+11. Type_2_Count
+12. Range_1_2
+13. lk_count
+14. ex_3_3_4
+15. Type_3_Count
+16. Type_1_Count
+17. Dst_One_Exist
+18. lk_elem_1
+19. ex_2_2_2_3
+20. seq_range_1_2_2_2_1_2_2_2

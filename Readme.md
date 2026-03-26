@@ -28,6 +28,10 @@
 对.Pcap文件进行预处理
 - **RF_All.py**  
 使用所有序列特征对样本进行分类
+- **RF_Selected**  
+在所有样本里面抽取一部分进行分类  
+TARGET_CLASS_COUNT = 10  # ⬅️ 目标抽取的类别数量  
+TOP_N_FEATURES = 20 # ⬅️ 特征数量
 - **RF_sequence.py**  
 RF_sequence.py使用随机森林算法，利用序列特征对样本进行分类  
 序列特征包括excess,Range_1,Range_2,lack等

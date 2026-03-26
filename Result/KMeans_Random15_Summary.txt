@@ -1,0 +1,11 @@
+K-Means Clustering Summary (Random 15 Classes)
+==================================================
+Random Seed: None
+Selected Classes: ['HONOR-70Pro', 'HONOR-70_1', 'HUAWEI-mate30_1', 'IP-14', 'IPAD-mini5_1', 'OPPO-A36', 'OPPO-FINDX3PRO_1', 'OPPO-FINDX3PRO_2', 'OPPO-FINDX3_2', 'OPPO-FINDX5TianJi', 'OPPO-FINDX6_1', 'VIVO-X70_PRO_2', 'VIVO-X90', 'XIAOMI-10MI1', 'XIAOMI-MI11Lite']
+Total Samples Used: 201
+Number of Clusters (K): 15
+
+--- Metrics ---
+Silhouette Score: 0.0172
+Calinski-Harabasz Score: 3.43
+Davies-Bouldin Score: 1.7798

@@ -1,0 +1,21 @@
+Random Forest Classification Summary
+==================================================
+Target Class Count: 15
+Selected Classes: ['HONOR-70Pro', 'HONOR-70_1', 'HONOR-80_SE_2', 'HUAWEI-mate30_1', 'HUAWEI-mate30_3', 'HUAWEI-mate40', 'HUAWEI-mate50pro', 'IPAD-9_1', 'IPAD-mini5_1', 'OPPO-FINDX5TianJi', 'OPPO-FINDX5_2', 'VIVO-X60_1', 'VIVO-X80_2', 'XIAOMI-10MI5', 'XIAOMI-10Mi2']
+Total Samples Used: 192
+Training Samples: 96
+Testing Samples: 96
+
+Accuracy: 0.8021
+
+Top 10 Features:
+  1. Next_Packet_After_First_Stage (0.1195)
+  2. First_Stage_Time_Diff (0.1138)
+  3. Type_3_First_Occurrence_Time (0.1041)
+  4. Avg_Time_Dst_1 (0.1027)
+  5. Type_5_First_Occurrence_Time (0.0856)
+  6. Type_4_First_Occurrence_Time (0.0829)
+  7. Type_6_First_Occurrence_Time (0.0763)
+  8. Type_2_Count (0.0455)
+  9. Dst_One_Count (0.0407)
+  10. Range_2 (0.0328)

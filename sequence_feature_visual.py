@@ -7,7 +7,7 @@ import ast
 from collections import Counter
 
 # ================= 配置区域 =================
-file_path = './data/feature/csv0419_1_feature_time_sequence.csv'
+file_path = 'data/feature/csv0419_1/All_feature_csv0419_1.csv'
 if not os.path.exists(file_path):
     file_path = 'new_feature_csv.csv'
 if not os.path.exists(file_path):

@@ -183,7 +183,7 @@ print(f"   有效样本数: {X.shape[0]}")
 
 # 3. 划分数据集与训练
 # 现在可以安全地使用 stratify=y 了
-test_size = 0.4
+test_size = 0.6
 # 动态调整 test_size 以防某些类样本极少（虽然已过滤<2，但为了保险）
 min_class_count = y.value_counts().min()
 if min_class_count * test_size < 1:
