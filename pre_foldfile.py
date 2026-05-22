@@ -4,8 +4,8 @@ import csv
 import os
 
 # 主逻辑：遍历文件夹并处理每个 PCAP 文件
-dataset_folder_path = './data/dataset0423'
-csv_base_path = r'./data/dataset0423_csv'
+dataset_folder_path = './data/260429'
+csv_base_path = r'./data/dataset_260429_csv'
 
 # 定义帧类型和子类型的映射
 FRAME_TYPES = {
@@ -103,6 +103,10 @@ def write_to_csv(csv_file, time, dst, type_):
         for tm, d, t in zip(time, dst, type_):
             writer.writerow([tm, d, t])
 
+
+# ... (此处省略你原有的 import 和定义部分，保持不变) ...
+
+# 遍历文件夹部分
 for root, dirs, files in os.walk(dataset_folder_path):
     print(f"当前目录: {root}")
     print(f"子目录列表: {dirs}")
@@ -111,23 +115,29 @@ for root, dirs, files in os.walk(dataset_folder_path):
     # 构造对应的 CSV 文件夹路径
     parts = root.split("\\")
     csv_folder_path = os.path.join(csv_base_path, *parts[-3:])
-    os.makedirs(csv_folder_path, exist_ok=True)  # 确保文件夹存在
+    os.makedirs(csv_folder_path, exist_ok=True)
 
     for file_name in files:
-        if file_name.endswith('.pcap'):  # 只处理 .pcap 文件
+        # 修改点：增加对 .pkt 文件的判断
+        if file_name.lower().endswith(('.pcap', '.pkt')):
             pcap_file = os.path.join(root, file_name)
             print(f"Processing file: {pcap_file}")
 
-            # 处理 PCAP 文件
+            # 处理文件（无论是 .pcap 还是 .pkt，PyShark 都会尝试读取）
             time, dst, type_ = process_pcap_file(pcap_file)
 
-            # 构造 CSV 文件路径
-            csv_file = os.path.join(csv_folder_path, file_name[:-5] + '.csv')
+            # 构造 CSV 文件路径（注意：这里我们将 .pkt 也转换为 .csv，去掉了 pkt 后缀）
+            # 例如：abc.pkt -> abc.csv
+            base_name = os.path.splitext(file_name)[0]
+            csv_file = os.path.join(csv_folder_path, base_name + '.csv')
 
             # 写入 CSV 文件
             write_to_csv(csv_file, time, dst, type_)
+            print(f"Converted: {file_name} -> {base_name}.csv")
 
     print(f"{root} DONE")
     print('-' * 50)
+
+print('All done!')
 
 print('All done!')

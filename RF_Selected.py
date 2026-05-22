@@ -19,9 +19,10 @@ plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'DejaVu Sans', '
 plt.rcParams['axes.unicode_minus'] = False
 sns.set_style("whitegrid")
 
+file_path = 'data/feature/csv0419_1_4/D0PR_csv0419_1_Cleaned_Final.csv'
 FIG_DIR = './fig/RF_Selected'
 RESULT_DIR = './Result/RF_Selected'
-TARGET_CLASS_COUNT = 10  # ⬅️ 目标抽取的类别数量
+TARGET_CLASS_COUNT = 16  # ⬅️ 目标抽取的类别数量
 TOP_N_FEATURES = 20 # ⬅️ 特征数量
 
 if not os.path.exists(FIG_DIR):
@@ -70,7 +71,6 @@ def safe_eval_to_str_list(x):
 
 
 # ================= 1. 读取数据 =================
-file_path = './data/feature/csv0419_1/All_feature_csv0419_1.csv'
 print(f"正在读取文件: {file_path} ...")
 
 try:
@@ -300,8 +300,8 @@ with open(summary_file, 'w', encoding='utf-8') as f:
     f.write(f"Training Samples: {len(X_train)}\n")
     f.write(f"Testing Samples: {len(X_test)}\n\n")
     f.write(f"Accuracy: {acc:.4f}\n")
-    f.write(f"\nTop 10 Features:\n")
-    for i in range(min(10, len(top_names))):
+    f.write(f"\nTop 20 Features:\n")
+    for i in range(min(20, len(top_names))):
         f.write(f"  {i + 1}. {top_names[i]} ({top_scores[i]:.4f})\n")
 
 print(f"✅ 摘要信息已保存至: {summary_file}")

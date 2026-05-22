@@ -1,0 +1,31 @@
+Random Forest Classification Summary
+==================================================
+Target Class Count: 30
+Selected Classes: ['HONOR-70_1', 'HONOR-70_2', 'HONOR-80', 'HUAWEI-MateBook', 'HUAWEI-PadSE', 'HUAWEI-mate30_1', 'HUAWEI-mate30_3', 'HUAWEI-mate40', 'HUAWEI-mate40pro', 'HUAWEI-mate50pro', 'HUAWEI-seHUODONGBAN', 'IQOO-Z9X', 'OPPO-A36', 'OPPO-AFindX3_1', 'OPPO-FINDX3PRO_1', 'OPPO-FINDX3PRO_2', 'OPPO-FINDX3_2', 'OPPO-FINDX5_1', 'OPPO-FINDX5_2', 'VIVO-X60_1', 'VIVO-X60_2', 'VIVO-X70_PRO_1', 'XIAOMI-10MI1', 'XIAOMI-10MI3', 'XIAOMI-10MI5', 'XIAOMI-10Mi2', 'XIAOMI-12', 'XIAOMI-12X', 'XIAOMI-13', 'XIAOMI-MI11Lite']
+Total Samples Used: 395
+Training Samples: 197
+Testing Samples: 198
+
+Accuracy: 0.6212
+
+Top 20 Features:
+  1. Next_Packet_After_First_Stage (0.0934)
+  2. First_Stage_Time_Diff (0.0737)
+  3. Type_6_Last_Time (0.0669)
+  4. Range_1 (0.0648)
+  5. Gap_23_Time (0.0507)
+  6. Gap_34_Time_Ratio (0.0496)
+  7. Type_3_First_Occurrence_Time (0.0485)
+  8. A_IAT_P95 (0.0481)
+  9. A_Mean_IAT (0.0472)
+  10. Type_4_Last_Time (0.0467)
+  11. Type_3_Last_Time (0.0440)
+  12. Type_4_First_Occurrence_Time (0.0440)
+  13. Type_6_Time (0.0425)
+  14. Probe_Time_Ratio (0.0415)
+  15. Type_6_Time_Ratio (0.0412)
+  16. A_IAT_P10 (0.0411)
+  17. Type_5_First_Occurrence_Time (0.0409)
+  18. Assoc_Time_Ratio (0.0406)
+  19. Gap_23_Time_Ratio (0.0404)
+  20. Range_2 (0.0344)

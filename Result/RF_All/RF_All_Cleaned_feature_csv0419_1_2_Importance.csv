@@ -1,0 +1,16 @@
+﻿Rank,Feature_Name,Importance_Score,Feature_Type
+1,Next_Packet_After_First_Stage,0.123827351646732,Numeric
+2,First_Stage_Time_Diff,0.08478084222784239,Numeric
+3,Type_6_Last_Time,0.06951858264934418,Numeric
+4,Type_5_Last_Time,0.06818584388767523,Numeric
+5,Gap_23_Time,0.0673602195900968,Numeric
+6,Gap_34_Time_Ratio,0.06576511015435356,Numeric
+7,Type_3_First_Occurrence_Time,0.06379922914811603,Numeric
+8,Type_6_Time,0.0634369600451121,Numeric
+9,Type_6_Time_Ratio,0.060276805573285845,Numeric
+10,A_IAT_P10,0.05933675181125461,Numeric
+11,Type_4_Last_Time,0.058671418482190256,Numeric
+12,Gap_23_Time_Ratio,0.057052302239798444,Numeric
+13,Type_3_Last_Time,0.05609110566251424,Numeric
+14,A_IAT_P95,0.05223255395648668,Numeric
+15,A_IAT_StdDev,0.04966492292519759,Numeric

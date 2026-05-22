@@ -1,3 +1,4 @@
+
 import os
 import pandas as pd
 import numpy as np
@@ -6,9 +7,11 @@ from scipy.stats import skew, kurtosis
 # ==========================================
 # 配置区域
 # ==========================================
-BASE_PATH = "./data/csv0419_1"
-OUTPUT_DIR = "./data/feature/csv0419_1"
-OUTPUT_FILE_ALL = os.path.join(OUTPUT_DIR, "All_feature_csv0419_1.csv")
+A = 'csv0419_1_4'
+BASE_PATH = f"./data/{A}"
+OUTPUT_DIR = f"./data/feature/{A}"
+OUTPUT_FILE_ALL = os.path.join(OUTPUT_DIR, f"All_feature_{A}.csv")
+final_all_path = os.path.join(OUTPUT_DIR, f"All_Cleaned_feature_{A}.csv")
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -197,13 +200,18 @@ def extract_features(group):
         features[f'Type_{t}_Last_Time'] = 0
         features[f'Type_{t}_Count'] = 0
 
+
     if not phase_a_group.empty and type_sequence:
         for t in range(1, 7):
             subset = phase_a_group[phase_a_group['Type'] == t]
             if not subset.empty:
                 features[f'Type_{t}_First_Occurrence_Time'] = subset['Time'].min()
-                features[f'Type_{t}_Last_Time'] = subset['Time'].max()
+                #features[f'Type_{t}_Last_Time'] = subset['Time'].max()
                 features[f'Type_{t}_Count'] = len(subset)
+        for t in range(1, 6):
+            subset = phase_a_group[phase_a_group['Type'] == t]
+            if not subset.empty:
+                features[f'Type_{t}_Last_Time'] = subset['Time'].max()
 
     # --- 5. 时间差特征计算 ---
     t1_first = features['Type_1_First_Occurrence_Time']
@@ -218,8 +226,8 @@ def extract_features(group):
     t6_last = features['Type_6_Last_Time']
 
     def safe_diff(end_t, start_t):
-        if end_t > 0 and start_t > 0:
-            return max(0.0, end_t - start_t)
+        if end_t >= 0 and start_t >= 0:
+            return end_t - start_t
         return 0.0
 
     features['Probe_Time'] = safe_diff(t2_last, t1_first)
@@ -644,7 +652,7 @@ def main():
         else:
             print(f"   ⚠️ {cls_name}: 无数据，跳过保存。")
 
-    final_all_path = os.path.join(OUTPUT_DIR, "All_Cleaned_feature_csv0419_1.csv")
+
     final_df.to_csv(final_all_path, index=False, encoding='utf-8-sig')
     print(f"   ✅ 已保存清洗后的总文件: {final_all_path} ({len(final_df)} 条)")
 

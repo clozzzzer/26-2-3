@@ -39,3 +39,20 @@ RF_sequence.py使用随机森林算法，利用序列特征对样本进行分类
 基于RF_All.py，提取了最重要的30个特征进行分类
 - **visual_sequence_feature.py**  
 对序列特征进行可视化
+
+# 26-5-15
+程序运行流程：
+
+- **feature.py**  
+输入数据提取特征
+BASE_PATH = "./data/csv0419_1_4"  
+OUTPUT_DIR = "./data/feature/csv0419_1_4"  
+OUTPUT_FILE_ALL = os.path.join(OUTPUT_DIR, "All_feature_csv0419_1_4.csv")    
+生成：  
+   ⚠️ D1NOPR: 无数据，跳过保存。  
+   ⚠️ D1PR: 无数据，跳过保存。  
+   ⚠️ D0NOPR: 无数据，跳过保存。  
+   ✅ D0PR: 297 条 -> ./data/feature/csv0419_1_4\D0PR_csv0419_1.csv  
+   ✅ 已保存清洗后的总文件: ./data/feature/csv0419_1_4\All_Cleaned_feature_csv0419_1.csv (297 条)  
+- 
+

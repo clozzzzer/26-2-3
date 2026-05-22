@@ -1,0 +1,7 @@
+Random Forest (All Features) Evaluation Summary
+==================================================
+Accuracy: 0.5443
+Total Features: 60
+Samples Used: 395 (Removed rare classes)
+Train Size: 158
+Test Size: 237

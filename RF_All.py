@@ -12,8 +12,10 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
-A = "All_feature_csv0419_1"
-file_path = f'./data/feature/csv0419_1/{A}.csv'
+A = "All_Cleaned_feature_csv0419_1_4"
+#A = "D0PR_All_Cleaned_feature_csv0419_1_4"
+file_path = f'./data/feature/csv0419_1_4/{A}.csv'
+#file_path = 'data/feature/csv0419_1_4/D0PR_All_Cleaned_feature_csv0419_1_4.csv'
 
 # ================= 配置区域 =================
 plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'DejaVu Sans', 'Arial Unicode MS']
