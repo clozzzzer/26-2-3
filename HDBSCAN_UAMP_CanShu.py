@@ -21,21 +21,22 @@ plt.rcParams['axes.unicode_minus'] = False
 #DATA_PATH = r'.\data/feature/csv0419_1_3/All_Cleaned_feature_csv0419_1_3.csv'
 #IMPORTANCE_PATH = r'./Result/RF_All\RF_All_Cleaned_feature_csv0419_1_4_Importance.csv'
 #DATA_PATH = r'.\data/feature/csv0419_1_4/All_Cleaned_feature_csv0419_1_4.csv'
-IMPORTANCE_PATH = r'Result/Funnel_Strategy_Extended/Final_Feature_Importance.csv'
-DATA_PATH = r'data/feature/csv0419_1_4/D0PR_All_Cleaned_feature_csv0419_1_4.csv'
-TOP_N_FEATURES = 8
+IMPORTANCE_PATH = r'Result/Funnel_Strategy_Extended/D0PR_All_Cleaned_feature_csv0419_1_5_2/Final_Feature_Importance.csv'
+DATA_PATH = r'data/feature/csv0419_1_5_2/D0PR_All_Cleaned_feature_csv0419_1_5_2.csv'
+TOP_N_FEATURES = 9
 RANDOM_STATE = 42
 
 # --- 参数搜索范围 ---
-UMAP_N_NEIGHBORS = list(range(2, 13))
-UMAP_MIN_DIST = np.arange(0, 0.05, 0.01).tolist()
+UMAP_N_COMPONENTS = list(range(2, 6))  # 搜索 2, 3, 4
+UMAP_N_NEIGHBORS = list(range(2, 8))
+UMAP_MIN_DIST = np.arange(0, 0.06, 0.005).tolist()
 HDBSCAN_MIN_CLUSTER_SIZE = list(range(2, 7))
-UMAP_N_COMPONENTS = list(range(2, 5))  # 搜索 2, 3, 4
+
 
 # --- 综合评分配置 ---
-WEIGHT_ARI = 0.9
-WEIGHT_SIL = 0.05
-WEIGHT_COV = 0.05
+WEIGHT_ARI = 0.8
+WEIGHT_SIL = 0.1
+WEIGHT_COV = 0.1
 print(f"⚙️ 综合评分权重: ARI={WEIGHT_ARI}, Silhouette={WEIGHT_SIL}, Coverage={WEIGHT_COV}")
 
 

@@ -27,18 +27,20 @@ plt.rcParams['axes.unicode_minus'] = False
 #IMPORTANCE_PATH = r'./Result/RF_All\RF_All_Cleaned_feature_csv0419_1_4_Importance.csv'
 IMPORTANCE_PATH = r'Result/Funnel_Strategy_Extended/Final_Feature_Importance.csv'
 DATA_PATH = r'.\data/feature/csv0419_1_4/D0PR_All_Cleaned_feature_csv0419_1_4.csv'
+#IMPORTANCE_PATH = r'Result/Funnel_Strategy_Extended/D0PR_All_Cleaned_feature_csv0419_1_5_2/Final_Feature_Importance.csv'
+#DATA_PATH = r'data/feature/csv0419_1_5_2/D0PR_All_Cleaned_feature_csv0419_1_5_2.csv'
 
-TOP_N_FEATURES = 10  # 选择前 N 个重要特征
+TOP_N_FEATURES = 9  # 选择前 N 个重要特征
 RANDOM_STATE = 42
 
 # --- HDBSCAN 参数调整 ---
 # 原 min_cluster_size 在高维稀疏数据中可能需要调大，但在 UMAP 降维后，簇会更紧密，可以适当调小或保持
 
 # UMAP 降维目标维度 (通常 2-10 维效果很好，既能降噪又能保留结构)
-N_COMPONENTS_UMAP = 3
-n_nei = 11
-min_d = 0.02
-MIN_CLUSTER_SIZE = 3
+N_COMPONENTS_UMAP = 2
+n_nei = 5
+min_d = 0.025
+MIN_CLUSTER_SIZE = 4
 print(
     f"⚙️ 当前配置: 选取前 {TOP_N_FEATURES} 个特征, HDBSCAN min_cluster_size={MIN_CLUSTER_SIZE}, UMAP dimensions={N_COMPONENTS_UMAP}")
 

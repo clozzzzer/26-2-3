@@ -19,13 +19,13 @@ plt.rcParams['font.sans-serif'] = ['SimHei', 'Arial Unicode MS', 'sans-serif']
 plt.rcParams['axes.unicode_minus'] = False
 
 # ================= 漏斗式筛选策略配置区域 =================
-#A = "All_Cleaned_feature_csv0419_1_4"
-A = "D0PR_All_Cleaned_feature_csv0419_1_4"
-file_path = f'./data/feature/csv0419_1_4/{A}.csv'
+#A = "All_Cleaned_feature_csv0419_1_5"
+A = "D0PR_All_Cleaned_feature_csv0419_1_5_2"
+file_path = f'./data/feature/csv0419_1_5_2/{A}.csv'
 if not os.path.exists(file_path):
     file_path = 'D0PR_csv0419_1.csv'
 
-RESULT_DIR = './Result/Funnel_Strategy_Extended'
+RESULT_DIR = f'./Result/Funnel_Strategy_Extended/{A}'
 TARGET_CLASS_COUNT = 16  # 目标抽取的类别数量
 
 # --- 漏斗三层筛选参数 ---

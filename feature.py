@@ -7,7 +7,7 @@ from scipy.stats import skew, kurtosis
 # ==========================================
 # 配置区域
 # ==========================================
-A = 'csv0419_1_4'
+A = 'csv0419_1_5'
 BASE_PATH = f"./data/{A}"
 OUTPUT_DIR = f"./data/feature/{A}"
 OUTPUT_FILE_ALL = os.path.join(OUTPUT_DIR, f"All_feature_{A}.csv")

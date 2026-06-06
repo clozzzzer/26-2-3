@@ -1,10 +1,10 @@
 import pandas as pd
 
 # 1. 配置文件路径
-input_file = 'data/feature/csv0419_1_4/All_Cleaned_feature_csv0419_1_4.csv'
+input_file = 'data/feature/csv0419_1_5/All_Cleaned_feature_csv0419_1_5.csv'
 #IMPORTANCE_PATH = r'./Result/RF_All\RF_All_Cleaned_feature_csv0419_1_4_Importance.csv'
 IMPORTANCE_PATH = r'./Result/Funnel_Strategy_Extended/Final_Feature_Importance.csv'
-output_file = 'data/feature/csv0419_1_4/D0PR_All_Cleaned_feature_csv0419_1_4.csv'
+output_file = 'data/feature/csv0419_1_5/D0PR_All_Cleaned_feature_csv0419_1_5.csv'
 
 # --- 新增配置：定义标签列名 ---
 # 请根据你原始CSV文件的实际列名修改这里
